@@ -1,12 +1,14 @@
 import sqlite3
 try:
     sql_connect = sqlite3.connect('sql_puthon.db')
+    #создали объект соединения
     cursor = sql_connect.cursor()
+    # создали объект с помощью объекта соединения, который позволяет выполнять sql-запросы из python
     print('База данных успешно создана')
     #создали БД sql_puthon.db и установили соединение. Если она уже есть, то просто установили соединение
     
     sql_select_query = "select sqlite_version();"
-    # в этой строке мы получаем версию БД
+    # в этой строке мы получаем версию БД, .е. это запос sql
     cursor.execute(sql_select_query)
     #это метод у объекта курсор выполняет запрос в БД. Он принимает sql-запрос и возвращает строки из БД. 
     record = cursor.fetchall()
